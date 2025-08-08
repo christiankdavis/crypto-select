@@ -120,14 +120,14 @@ This project can be deployed to Vercel, Netlify, GitHub Pages, or any static-hos
 ```
 token-price-explorer/
 ├── public/
-│   └──favicon.png
+│   ├── favicon.png
+│   └── tokens/
+│       ├── eth-logo.png
+│       ├── btc-logo.png
+│       └── …other token PNGs…
 ├── src/
 │   ├── api/
 │   │   └── quote.ts
-│   ├── assets/
-│   │   ├── eth.png
-│   │   ├── btc.png
-│   │   ├── …other token icons…
 │   ├── components/
 │   │   ├── AmountDisplay.tsx
 │   │   ├── AmountDisplay.css
@@ -136,7 +136,7 @@ token-price-explorer/
 │   │   ├── TokenSelect.tsx
 │   │   └── TokenSelect.css
 │   ├── constants/
-│   │   ├── tokens.ts
+│   │   └── tokens.ts
 │   ├── context/
 │   │   └── ThemeContext.tsx
 │   ├── hooks/
@@ -176,8 +176,18 @@ token-price-explorer/
   }
 
   export const TOKENS: TokenInfo[] = [
-    { symbol: "ETH", name: "Ethereum", chainId: 1, iconPath: "/icons/eth.svg" },
-    { symbol: "BTC", name: "Bitcoin", chainId: 1, iconPath: "/icons/btc.svg" },
+    {
+      symbol: "ETH",
+      name: "Ethereum",
+      chainId: 1,
+      iconPath: "public/tokens/eth.svg",
+    },
+    {
+      symbol: "BTC",
+      name: "Bitcoin",
+      chainId: 1,
+      iconPath: "public/tokens/btc.svg",
+    },
     /* …other tokens… */
   ];
   ```
