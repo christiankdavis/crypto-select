@@ -12,8 +12,8 @@ import "./App.css";
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
-  const [fromToken, setFromToken] = useState(TOKENS[3].symbol); // default "BTC"
-  const [toToken, setToToken] = useState(TOKENS[2].symbol); // default "ETH"
+  const [fromToken, setFromToken] = useState(TOKENS[7].symbol);
+  const [toToken, setToToken] = useState(TOKENS[2].symbol);
   const [usdAmount, setUsdAmount] = useState(222);
 
   const { fromAmount, toAmount, loading, error } = useQuote(

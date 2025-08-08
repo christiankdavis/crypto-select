@@ -28,6 +28,7 @@
 
 .amount-input__usd-input {
   flex: 1;
+  align-self: first baseline;
   font-size: 48px;
   font-weight: 600;
   color: var(--text-primary);
@@ -35,6 +36,7 @@
   border: none;
   outline: none;
   padding-right: 48px;
+  width: 100%;
 }
 
 .amount-input__usd-input::-webkit-outer-spin-button,
@@ -49,6 +51,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .amount-input__preview-usd {
@@ -63,6 +66,28 @@
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.2;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.amount-input__preview-token__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.amount-input__preview-token__symbol {
+  flex: none;
+  padding-left: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 22px;
 }
 
 .amount-input__box:hover {

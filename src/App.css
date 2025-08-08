@@ -107,7 +107,7 @@ body,
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 36px;
+  padding-top: 32px;
 }
 
 .values__equals {

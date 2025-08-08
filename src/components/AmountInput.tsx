@@ -26,7 +26,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
   // dynamic font size
   const displayStr = text || "0";
   const MAX_SIZE = 48;
-  const MIN_SIZE = 24;
+  const MIN_SIZE = 30;
   const THRESHOLD = 6;
   const SHRINK_PER_CHAR = 3;
   const extra = Math.max(0, displayStr.length - THRESHOLD);
@@ -119,7 +119,12 @@ export const AmountInput: React.FC<AmountInputProps> = ({
         <div className="amount-input__preview">
           <div className="amount-input__preview-usd">USD</div>
           <div className="amount-input__preview-token">
-            {tokenAmount.toFixed(5)} {token.symbol}
+            <div className="amount-input__preview-token__value">
+              {`${tokenAmount.toFixed(5)} `}
+            </div>
+            <div className="amount-input__preview-token__symbol">
+              {token.symbol}
+            </div>
           </div>
         </div>
       </div>
