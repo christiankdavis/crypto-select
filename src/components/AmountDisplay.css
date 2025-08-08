@@ -1,0 +1,30 @@
+.amount-display {
+  width: 320px;
+  font-family: inherit;
+}
+
+.amount-display__box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 192px;
+  justify-content: center;
+}
+
+.amount-display__value {
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.amount-display__ticker {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: left;
+}

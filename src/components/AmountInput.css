@@ -1,0 +1,92 @@
+.amount-input {
+  width: 320px;
+  font-family: inherit;
+}
+
+.amount-input__box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 192px;
+}
+
+.amount-input__usd-row {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+}
+
+.amount-input__usd-prefix {
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 4px;
+}
+
+.amount-input__usd-input {
+  flex: 1;
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-right: 48px;
+}
+
+.amount-input__usd-input::-webkit-outer-spin-button,
+.amount-input__usd-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amount-input__preview-usd {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.amount-input__preview-token {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.amount-input__box:hover {
+  border-color: var(--theme-blue);
+}
+
+.amount-input__steppers {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepper-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px;
+}
+.stepper-button:hover {
+  color: var(--text-primary);
+}
+
+.stepper-button:focus {
+  outline: none;
+}
+
+.stepper-button:active {
+  color: var(--theme-blue);
+}
