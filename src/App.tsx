@@ -51,7 +51,11 @@ export const App = () => {
           label="From"
         />
         {/* Swap button */}
-        <button className="swap-button" onClick={handleSwap}>
+        <button
+          className="swap-button"
+          onClick={handleSwap}
+          title="Swap tokens"
+        >
           ↔
         </button>
         <TokenSelect selected={toToken} onChange={setToToken} label="To" />
