@@ -11,6 +11,7 @@ A simplified interface that allows users to select crypto tokens and see their v
   - [Demo](#demo)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
+    - [Environment Variables](#environment-variables)
     - [Installation](#installation)
   - [Deployment](#deployment)
   - [Libraries Used](#libraries-used)
@@ -27,7 +28,7 @@ A simplified interface that allows users to select crypto tokens and see their v
 
 ## Demo
 
-> Live demo: [https://your-deployed-app.example.com](https://your-deployed-app.example.com)
+> Live demo: [https://token-price-explorer-htwxq3abt-christiankdavis-projects.vercel.app/](https://token-price-explorer-htwxq3abt-christiankdavis-projects.vercel.app/)
 
 ---
 
@@ -37,6 +38,17 @@ A simplified interface that allows users to select crypto tokens and see their v
 
 - [Node.js](https://nodejs.org/) ≥ 16
 - [npm](https://npmjs.com/) or [Yarn](https://yarnpkg.com/)
+
+### Environment Variables
+
+Create a `.env` file in your project root with:
+
+```env
+# Vite-specific env prefix
+VITE_FUNKIT_API_KEY=YOUR_API_KEY_HERE
+```
+
+> **Note**: Vite only exposes variables prefixed with `VITE_` to the client-side code.
 
 ### Installation
 
@@ -69,15 +81,21 @@ A simplified interface that allows users to select crypto tokens and see their v
 
 ## Deployment
 
-This project can be deployed to Vercel, Netlify, GitHub Pages, or any static-hosting service that supports a single-page React app. After building:
+This project can be deployed to Vercel, Netlify, GitHub Pages, or any static-hosting service that supports a single-page React app.
 
-```bash
-npm run build
-# or
-yarn build
-```
+1. Ensure your **API key** is set in your deployment service’s environment variables as `VITE_FUNKIT_API_KEY`.
 
-Upload the contents of `dist/` (or `build/`) to your host.
+   - **Vercel**: Go to your project dashboard → **Settings** → **Environment Variables** → add `VITE_FUNKIT_API_KEY` with your key.
+
+2. Build the production bundle:
+
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+3. Upload the contents of `dist/` (or `build/`) to your host.
 
 ---
 
