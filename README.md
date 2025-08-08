@@ -180,13 +180,13 @@ token-price-explorer/
       symbol: "ETH",
       name: "Ethereum",
       chainId: 1,
-      iconPath: "public/tokens/eth.svg",
+      iconPath: "/tokens/eth.svg",
     },
     {
       symbol: "BTC",
       name: "Bitcoin",
       chainId: 1,
-      iconPath: "public/tokens/btc.svg",
+      iconPath: "/tokens/btc.svg",
     },
     /* …other tokens… */
   ];
