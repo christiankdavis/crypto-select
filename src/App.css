@@ -94,7 +94,7 @@ body,
 
 .values {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 28px;
   padding-bottom: 2rem;
@@ -104,8 +104,9 @@ body,
   width: 32px;
   height: 192px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 36px;
 }
 
 .values__equals {
