@@ -11,6 +11,12 @@ export const App = () => {
   const [fromToken, setFromToken] = useState(TOKENS[3].symbol); // default "BTC"
   const [toToken, setToToken] = useState(TOKENS[2].symbol); // default "ETH"
 
+  // Swap handler
+  const handleSwap = () => {
+    setFromToken(toToken);
+    setToToken(fromToken);
+  };
+
   return (
     <div className="app-container">
       <header className="app-header">
@@ -26,7 +32,10 @@ export const App = () => {
           onChange={setFromToken}
           label="From"
         />
-        <span className="swap-icon">↔</span>
+        {/* Swap button */}
+        <button className="swap-button" onClick={handleSwap}>
+          ↔
+        </button>
         <TokenSelect selected={toToken} onChange={setToToken} label="To" />
       </div>
     </div>

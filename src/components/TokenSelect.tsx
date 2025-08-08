@@ -3,7 +3,7 @@ import { TOKENS } from "../constants/tokens";
 import "./TokenSelect.css";
 
 export interface TokenSelectProps {
-  label?: string; // optional heading above
+  label?: string;
   selected: string;
   onChange: (symbol: string) => void;
 }

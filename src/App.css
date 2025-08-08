@@ -47,19 +47,47 @@ body,
   outline: 2px solid var(--themeBlue);
 }
 
+.theme-toggle:focus {
+  outline: none;
+}
+
 .theme-toggle:hover {
   background: var(--surface);
 }
 
 .selectors {
   display: flex;
-  align-items: flex-start; /* align dropdown tops */
-  justify-content: center; /* center the entire row */
+  align-items: flex-start;
+  justify-content: center;
   gap: 24px;
   padding: 2rem;
+  padding-top: 4rem;
 }
-.swap-icon {
-  color: var(--text-secondary);
+
+.swap-button {
+  background: none;
+  border: none;
   font-size: 1.5rem;
-  margin-top: 46px; /* vertically align with dropdowns */
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin-top: 46px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.swap-button:hover {
+  color: var(--text-primary);
+}
+
+.swap-button:active {
+  color: var(--theme-blue);
+  background: var(--border);
+}
+
+.swap-button:focus {
+  outline: none;
+}
+.swap-button:focus-visible {
+  outline: 2px solid var(--theme-blue);
 }
