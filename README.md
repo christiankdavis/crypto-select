@@ -38,7 +38,7 @@ A simplified interface that allows users to select crypto tokens and see their v
 
 ## Demo
 
-> Live demo: [https://token-price-explorer-htwxq3abt-christiankdavis-projects.vercel.app/](https://token-price-explorer-htwxq3abt-christiankdavis-projects.vercel.app/)
+> Live demo: [https://token-price-explorer-git-main-christiankdavis-projects.vercel.app/](https://token-price-explorer-git-main-christiankdavis-projects.vercel.app/)
 
 ---
 
