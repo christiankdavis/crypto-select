@@ -4,7 +4,7 @@ import {
 } from "@funkit/api-base";
 import { TOKENS } from "../constants/tokens";
 
-const API_KEY = "Z9SZaOwpmE40KX61mUKWm5hrpGh7WHVkaTvQJpQk";
+const API_KEY = import.meta.env.VITE_FUNKIT_API_KEY as string;
 
 export interface QuoteResult {
   fromAmount: number;
