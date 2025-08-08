@@ -26,6 +26,11 @@
   outline: none;
 }
 
+.token-select__trigger_token {
+  display: flex;
+  align-items: center;
+}
+
 .token-select__trigger:focus {
   outline: none;
 }

@@ -54,13 +54,15 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
       >
-        <img
-          src={current.iconPath}
-          alt={current.symbol}
-          onError={handleIconError}
-          className="token-select__icon"
-        />
-        <span className="token-select__label">{`${current.name} (${current.symbol})`}</span>
+        <div className="token-select__trigger_token">
+          <img
+            src={current.iconPath}
+            alt={current.symbol}
+            onError={handleIconError}
+            className="token-select__icon"
+          />
+          <span className="token-select__label">{`${current.name} (${current.symbol})`}</span>
+        </div>
         <svg
           className="token-select__chevron"
           width="16"
