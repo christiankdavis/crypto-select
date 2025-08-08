@@ -74,6 +74,7 @@ export const App = () => {
         <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
       </div>
       <ToastContainer hideProgressBar />
+      <footer className="app-footer">Designed by Christian K Davis</footer>
     </div>
   );
 };
