@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { AmountDisplay } from "./components/AmountDisplay";
 import { AmountInput } from "./components/AmountInput";
 import { TokenSelect } from "./components/TokenSelect";
@@ -19,6 +20,13 @@ export const App = () => {
     toToken,
     usdAmount
   );
+
+  // Show toast on error
+  useEffect(() => {
+    if (error) {
+      toast.error(error, { position: "top-center", autoClose: 3000 });
+    }
+  }, [error]);
 
   // Swap handler
   const handleSwap = () => {
@@ -55,14 +63,11 @@ export const App = () => {
           tokenAmount={fromAmount}
           onUsdChange={setUsdAmount}
         />
-        {error ? (
-          <div className="values__error">Error: {error}</div>
-        ) : (
-          <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
-        )}
+        <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
 
         {loading && <div className="values__loading">Loading…</div>}
       </div>
+      <ToastContainer hideProgressBar />
     </div>
   );
 };
