@@ -4,19 +4,21 @@ import { AmountInput } from "./components/AmountInput";
 import { TokenSelect } from "./components/TokenSelect";
 import { TOKENS } from "./constants/tokens";
 import { useTheme } from "./context/ThemeContext";
+import { useQuote } from "./hooks/useQuote";
 import "./App.css";
 
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
-  // Page state
   const [fromToken, setFromToken] = useState(TOKENS[3].symbol); // default "BTC"
   const [toToken, setToToken] = useState(TOKENS[2].symbol); // default "ETH"
   const [usdAmount, setUsdAmount] = useState(18);
 
-  // Dummy conversion until useQuote is wired
-  const fromTokenAmount = usdAmount / 36;
-  const toTokenAmount = usdAmount / 11;
+  const { fromAmount, toAmount, loading, error } = useQuote(
+    fromToken,
+    toToken,
+    usdAmount
+  );
 
   // Swap handler
   const handleSwap = () => {
@@ -50,10 +52,16 @@ export const App = () => {
         <AmountInput
           usdValue={usdAmount}
           tokenSymbol={fromToken}
-          tokenAmount={fromTokenAmount}
+          tokenAmount={fromAmount}
           onUsdChange={setUsdAmount}
         />
-        <AmountDisplay tokenAmount={toTokenAmount} tokenSymbol={toToken} />
+        {error ? (
+          <div className="values__error">Error: {error}</div>
+        ) : (
+          <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
+        )}
+
+        {loading && <div className="values__loading">Loading…</div>}
       </div>
     </div>
   );
