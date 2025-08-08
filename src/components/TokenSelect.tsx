@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { TOKENS } from "../constants/tokens";
 import "./TokenSelect.css";
 
+const DEFAULT_ICON = "/favicon.png";
+
 export interface TokenSelectProps {
   label?: string;
   selected: string;
@@ -16,6 +18,14 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const current = TOKENS.find((t) => t.symbol === selected)!;
+
+  const handleIconError = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    // Prevent infinite loop if default also fails
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = DEFAULT_ICON;
+  };
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -47,6 +57,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
         <img
           src={current.iconPath}
           alt={current.symbol}
+          onError={handleIconError}
           className="token-select__icon"
         />
         <span className="token-select__label">{`${current.name} (${current.symbol})`}</span>
@@ -88,6 +99,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
                 <img
                   src={token.iconPath}
                   alt={token.symbol}
+                  onError={handleIconError}
                   className="token-select__icon"
                 />
                 <span className="token-select__label">{`${token.name} (${token.symbol})`}</span>
