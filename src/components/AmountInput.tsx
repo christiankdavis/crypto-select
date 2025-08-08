@@ -23,6 +23,15 @@ export const AmountInput: React.FC<AmountInputProps> = ({
 
   const stepperRef = useRef<number | null>(null);
 
+  // dynamic font size
+  const displayStr = text || "0";
+  const MAX_SIZE = 48;
+  const MIN_SIZE = 24;
+  const THRESHOLD = 6;
+  const SHRINK_PER_CHAR = 3;
+  const extra = Math.max(0, displayStr.length - THRESHOLD);
+  const fontSize = Math.max(MIN_SIZE, MAX_SIZE - extra * SHRINK_PER_CHAR);
+
   // Stop any ongoing interval
   const stopStepping = () => {
     if (stepperRef.current !== null) {
@@ -72,8 +81,6 @@ export const AmountInput: React.FC<AmountInputProps> = ({
   // Find token for preview
   const token = TOKENS.find((t) => t.symbol === tokenSymbol)!;
 
-  // dynamic font‐size logic omitted for brevity...
-
   return (
     <div className="amount-input">
       <div className="amount-input__box">
@@ -88,7 +95,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
             placeholder="0"
             min="0"
             step="1"
-            /* style={{ fontSize: `${fontSize}px` }} */
+            style={{ fontSize: `${fontSize}px` }}
           />
 
           <div className="amount-input__steppers">
@@ -96,7 +103,6 @@ export const AmountInput: React.FC<AmountInputProps> = ({
               type="button"
               className="stepper-button"
               onMouseDown={() => startStepping(1)}
-              /* no need for onMouseUp/onMouseLeave here */
             >
               ▲
             </button>
