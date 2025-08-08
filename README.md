@@ -8,6 +8,7 @@ A simplified interface that allows users to select crypto tokens and see their v
 
 - [Token Price Explorer](#token-price-explorer)
   - [Table of Contents](#table-of-contents)
+  - [Notable Features](#notable-features)
   - [Demo](#demo)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
@@ -23,6 +24,15 @@ A simplified interface that allows users to select crypto tokens and see their v
   - [API Integration](#api-integration)
     - [`src/api/quote.ts`](#srcapiquotets)
     - [`src/hooks/useQuote.ts`](#srchooksusequotets)
+
+---
+
+## Notable Features
+
+- **Theme switcher**: toggle between light and dark modes, with colors driven by CSS variables.
+- **From/To token selectors**: easily pick source and target tokens via dropdowns with logos.
+- **Swap button**: instantly swap "From" and "To" tokens.
+- **Live conversion**: enter a USD amount and immediately see corresponding token amounts for both selected tokens, with dynamic font resizing.
 
 ---
 
