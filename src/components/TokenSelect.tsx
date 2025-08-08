@@ -49,7 +49,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
           alt={current.symbol}
           className="token-select__icon"
         />
-        <span className="token-select__label">{current.name}</span>
+        <span className="token-select__label">{`${current.name} (${current.symbol})`}</span>
         <svg
           className="token-select__chevron"
           width="16"
@@ -84,7 +84,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
                 alt={token.symbol}
                 className="token-select__icon"
               />
-              <span className="token-select__label">{token.name}</span>
+              <span className="token-select__label">{`${token.name} (${token.symbol})`}</span>
             </li>
           ))}
         </ul>

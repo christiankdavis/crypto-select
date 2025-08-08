@@ -16,7 +16,7 @@ export const AmountDisplay: React.FC<AmountDisplayProps> = ({
   // dynamic font size
   const MAX_SIZE = 48;
   const MIN_SIZE = 24;
-  const THRESHOLD = 6;
+  const THRESHOLD = 8;
   const SHRINK_PER_CHAR = 2;
   const extraChars = Math.max(0, valueStr.length - THRESHOLD);
   const fontSize = Math.max(MIN_SIZE, MAX_SIZE - extraChars * SHRINK_PER_CHAR);
