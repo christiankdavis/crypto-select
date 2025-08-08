@@ -85,3 +85,8 @@
 .token-select__option:hover {
   background: var(--border);
 }
+
+.token-select__option:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: var(--border);
+}
