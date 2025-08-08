@@ -53,7 +53,7 @@
 
 .token-select__chevron {
   flex-shrink: 0;
-  transition: transform 150ms ease;
+  transition: transform 300ms ease;
   color: var(--text-primary);
 }
 

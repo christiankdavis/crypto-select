@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { TOKENS } from "../constants/tokens";
 import "./TokenSelect.css";
 
@@ -14,10 +14,29 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
   onChange,
 }) => {
   const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const current = TOKENS.find((t) => t.symbol === selected)!;
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        open &&
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
-    <div className="token-select">
+    <div className="token-select" ref={wrapperRef}>
       {label && <div className="token-select__heading">{label}</div>}
 
       <button
