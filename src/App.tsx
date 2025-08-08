@@ -15,8 +15,8 @@ export const App = () => {
   const [usdAmount, setUsdAmount] = useState(18);
 
   // Dummy conversion until useQuote is wired
-  const fromTokenAmount = usdAmount / 3600; // e.g. ETH price ~$3600
-  const toTokenAmount = usdAmount / 1160000; // e.g. BTC price ~$1.16M
+  const fromTokenAmount = usdAmount / 3600;
+  const toTokenAmount = usdAmount / 1160000;
 
   // Swap handler
   const handleSwap = () => {
@@ -48,17 +48,12 @@ export const App = () => {
 
       <div className="values">
         <AmountInput
-          label="From"
           usdValue={usdAmount}
           tokenSymbol={fromToken}
           tokenAmount={fromTokenAmount}
           onUsdChange={setUsdAmount}
         />
-        <AmountDisplay
-          label="To"
-          tokenAmount={toTokenAmount}
-          tokenSymbol={toToken}
-        />
+        <AmountDisplay tokenAmount={toTokenAmount} tokenSymbol={toToken} />
       </div>
     </div>
   );
