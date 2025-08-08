@@ -70,23 +70,29 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
 
       {open && (
         <ul className="token-select__menu">
-          {TOKENS.map((token) => (
-            <li
-              key={token.symbol}
-              className="token-select__option"
-              onClick={() => {
-                onChange(token.symbol);
-                setOpen(false);
-              }}
-            >
-              <img
-                src={token.iconPath}
-                alt={token.symbol}
-                className="token-select__icon"
-              />
-              <span className="token-select__label">{`${token.name} (${token.symbol})`}</span>
-            </li>
-          ))}
+          {[...TOKENS]
+            .sort((a, b) =>
+              a.symbol.localeCompare(b.symbol, undefined, {
+                sensitivity: "base",
+              })
+            )
+            .map((token) => (
+              <li
+                key={token.symbol}
+                className="token-select__option"
+                onClick={() => {
+                  onChange(token.symbol);
+                  setOpen(false);
+                }}
+              >
+                <img
+                  src={token.iconPath}
+                  alt={token.symbol}
+                  className="token-select__icon"
+                />
+                <span className="token-select__label">{`${token.name} (${token.symbol})`}</span>
+              </li>
+            ))}
         </ul>
       )}
     </div>
