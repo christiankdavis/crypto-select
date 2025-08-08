@@ -50,3 +50,16 @@ body,
 .theme-toggle:hover {
   background: var(--surface);
 }
+
+.selectors {
+  display: flex;
+  align-items: flex-start; /* align dropdown tops */
+  justify-content: center; /* center the entire row */
+  gap: 24px;
+  padding: 2rem;
+}
+.swap-icon {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  margin-top: 46px; /* vertically align with dropdowns */
+}
