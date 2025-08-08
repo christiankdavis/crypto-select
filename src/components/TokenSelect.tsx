@@ -31,7 +31,6 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
           className="token-select__icon"
         />
         <span className="token-select__label">{current.name}</span>
-        {/* real SVG chevron */}
         <svg
           className="token-select__chevron"
           width="16"
