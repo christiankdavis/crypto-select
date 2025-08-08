@@ -119,7 +119,7 @@ This project can be deployed to Vercel, Netlify, GitHub Pages, or any static-hos
 
 ## Assumptions
 
-- Users will not request quotes for more than **\$1 billion USD**.
+- Users will not request quotes for more than **\$1 billion USD**. (Input supports up to $1 trillion to be safe)
 - All supported tokens live on supported chains (see `TOKENS` array).
 - “From” and “To” values always share the same USD amount input.
 
