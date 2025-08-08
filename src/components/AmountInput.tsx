@@ -23,18 +23,13 @@ export const AmountInput: React.FC<AmountInputProps> = ({
 
   const stepperRef = useRef<number>(0);
 
-  // start repeating increment or decrement
+  // continuous stepping
   const startStepping = (delta: number) => {
-    // do one immediate step
-    onUsdChange(Math.max(0, usdValue + delta));
-
-    // then start interval
+    onUsdChange((v) => Math.max(0, v + delta));
     stepperRef.current = window.setInterval(() => {
       onUsdChange((v) => Math.max(0, v + delta));
     }, 150);
   };
-
-  // stop repeating
   const stopStepping = () => {
     if (stepperRef.current) {
       clearInterval(stepperRef.current);
@@ -49,7 +44,6 @@ export const AmountInput: React.FC<AmountInputProps> = ({
       if (!isNaN(num)) onUsdChange(num);
     }
   };
-
   const handleBlur = () => {
     if (text === "") {
       setText("0");
@@ -57,7 +51,18 @@ export const AmountInput: React.FC<AmountInputProps> = ({
     }
   };
 
+  // Find token for preview
   const token = TOKENS.find((t) => t.symbol === tokenSymbol)!;
+
+  const displayStr = text || "0";
+
+  // dynamic font size
+  const MAX_SIZE = 48;
+  const MIN_SIZE = 24;
+  const THRESHOLD = 6;
+  const SHRINK_PER_CHAR = 3;
+  const extra = Math.max(0, displayStr.length - THRESHOLD);
+  const fontSize = Math.max(MIN_SIZE, MAX_SIZE - extra * SHRINK_PER_CHAR);
 
   return (
     <div className="amount-input">
@@ -73,9 +78,9 @@ export const AmountInput: React.FC<AmountInputProps> = ({
             placeholder="0"
             min="0"
             step="1"
+            style={{ fontSize: `${fontSize}px` }}
           />
 
-          {/* continuous-stepping buttons */}
           <div className="amount-input__steppers">
             <button
               type="button"

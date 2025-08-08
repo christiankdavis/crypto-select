@@ -15,8 +15,8 @@ export const App = () => {
   const [usdAmount, setUsdAmount] = useState(18);
 
   // Dummy conversion until useQuote is wired
-  const fromTokenAmount = usdAmount / 3600;
-  const toTokenAmount = usdAmount / 1160000;
+  const fromTokenAmount = usdAmount / 36;
+  const toTokenAmount = usdAmount / 11;
 
   // Swap handler
   const handleSwap = () => {
