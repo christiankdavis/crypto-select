@@ -94,8 +94,23 @@ body,
 
 .values {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 90px;
+  gap: 28px;
   padding-bottom: 2rem;
+}
+
+.values__center {
+  width: 32px;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.values__equals {
+  font-size: 32px;
+  color: var(--text-secondary);
+  line-height: 1;
+  user-select: none;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
 import { AmountDisplay } from "./components/AmountDisplay";
 import { AmountInput } from "./components/AmountInput";
@@ -13,7 +14,7 @@ export const App = () => {
 
   const [fromToken, setFromToken] = useState(TOKENS[3].symbol); // default "BTC"
   const [toToken, setToToken] = useState(TOKENS[2].symbol); // default "ETH"
-  const [usdAmount, setUsdAmount] = useState(18);
+  const [usdAmount, setUsdAmount] = useState(222);
 
   const { fromAmount, toAmount, loading, error } = useQuote(
     fromToken,
@@ -63,9 +64,14 @@ export const App = () => {
           tokenAmount={fromAmount}
           onUsdChange={setUsdAmount}
         />
+        <div className="values__center">
+          {loading ? (
+            <ClipLoader size={24} color={"var(--theme-blue)"} loading={true} />
+          ) : (
+            <span className="values__equals">=</span>
+          )}
+        </div>
         <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
-
-        {loading && <div className="values__loading">Loading…</div>}
       </div>
       <ToastContainer hideProgressBar />
     </div>

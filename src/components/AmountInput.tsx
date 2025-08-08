@@ -106,7 +106,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
         <div className="amount-input__preview">
           <div className="amount-input__preview-usd">USD</div>
           <div className="amount-input__preview-token">
-            {tokenAmount.toFixed(4)} {token.symbol}
+            {tokenAmount.toFixed(5)} {token.symbol}
           </div>
         </div>
       </div>
