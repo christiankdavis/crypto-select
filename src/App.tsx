@@ -3,6 +3,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
 import { AmountDisplay } from "./components/AmountDisplay";
 import { AmountInput } from "./components/AmountInput";
+import TokenScale from "./components/TokenScale";
 import { TokenSelect } from "./components/TokenSelect";
 import { TOKENS } from "./constants/tokens";
 import { useTheme } from "./context/ThemeContext";
@@ -15,6 +16,8 @@ export const App = () => {
   const [fromToken, setFromToken] = useState(TOKENS[7].symbol);
   const [toToken, setToToken] = useState(TOKENS[2].symbol);
   const [usdAmount, setUsdAmount] = useState(222);
+  const fromTokenFull = TOKENS.find((t) => t.symbol === fromToken)!;
+  const toTokenFull = TOKENS.find((t) => t.symbol === toToken)!;
 
   const { fromAmount, toAmount, loading, error } = useQuote(
     fromToken,
@@ -78,6 +81,15 @@ export const App = () => {
         <AmountDisplay tokenAmount={toAmount} tokenSymbol={toToken} />
       </div>
       <ToastContainer hideProgressBar />
+      <TokenScale
+        leftValue={fromAmount}
+        leftLabel={`1 ${fromTokenFull.symbol}`}
+        leftIcon={fromTokenFull.iconPath}
+        rightValue={toAmount}
+        rightLabel={`1 ${toTokenFull.symbol}`}
+        rightIcon={toTokenFull.iconPath}
+        mode="inverse"
+      />
       <footer className="app-footer">Designed by Christian K Davis</footer>
     </div>
   );
